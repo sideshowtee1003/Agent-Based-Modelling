@@ -12,8 +12,9 @@ import bs4
 
 num_of_moves = 2 # variable for how many times agent moves before refreshing
 num_of_iterations = 100 # variable for total number of iterations between each refresh
-neighbourhood = 20
+neighbourhood = 1
 agents = []
+wolf_agents = []
 
 
 # Download and print y and x data from webpage
@@ -54,20 +55,24 @@ def update(frame_number): # frame_number is a required parameter of the update f
     # Move the agents then eat the grass (call move + eat functions).
     for j in range(num_of_moves):
         random.shuffle(agents) # Shuffles list of agents each iteration before behaviour functions
-        for i in range(num_of_agents):
+        for i in range(len(agents)):
             agents[i].move()
             agents[i].eat()
             agents[i].share_with_neighbours(neighbourhood)
+            wolf_agents[i].move()
+            
+        for i in range(num_of_agents):
+            wolf_agents[i].eat_sheep(neighbourhood)
              
 
     # Loop through agents and set variable carry_on to false when all agents store > 500
     count = 0
-    for i in range(num_of_agents):
+    for i in range(len(agents)):
         if agents[i].store > 500:
             count = count+1
-    if (count == num_of_agents):
+    if (count == len(agents)):
         print("Stopping Condition: All agents have exceeded store of 500")
-        for i in range(num_of_agents):
+        for i in range(len(agents)):
             print(agents[i])
             """ Testing that all agents exceed storage of 500
             Returns:
@@ -79,14 +84,17 @@ def update(frame_number): # frame_number is a required parameter of the update f
     matplotlib.pyplot.ylim(0, 99)
     matplotlib.pyplot.imshow(environment)
     
-    for i in range(num_of_agents):
+    for i in range(len(agents)):
         matplotlib.pyplot.scatter(agents[i].x,agents[i].y, c='white', marker='*')
+        
+    for i in range(len(agents)):
+        matplotlib.pyplot.scatter(wolf_agents[i].x,wolf_agents[i].y, c='black', marker='*')
 
   
 # Generator function to stop supply when stopping condition is met          
 def gen_function(b = [0]):
     a = 0
-    global carry_on #Not neccessary as no assignment is being performed, but provides clarity
+    global carry_on #Not actually needed as we're not assigning, but clearer
     while (a < num_of_iterations) & (carry_on) :
         yield a			# Returns control and waits next call.
         a = a + 1
@@ -107,6 +115,7 @@ def sel():
     global td_ys
     global td_xs
     global agents
+    global wolf_agents
     num_of_agents = w.get()
     # Pass in agents from web scrape, environment variable (and self as always).
     for i in range(num_of_agents):
@@ -114,6 +123,12 @@ def sel():
         x = int(td_xs[i].text)
         #print(x, y)
         agents.append(agentframework.Agent(environment, agents, y, x))
+        
+    for i in range(num_of_agents):
+        y = random.randint(0,100)
+        x = random.randint(0,100)
+        #print(x, y)
+        wolf_agents.append(agentframework.wolf_agent(environment, wolf_agents, agents, y, x))
 
 
 # Styling of the canvas  

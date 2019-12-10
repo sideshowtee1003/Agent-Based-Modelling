@@ -58,5 +58,47 @@ class Agent(): # Create class
     # Function to create pythag formula to calculate distance between co-ordinates
     def distance_between(self, agent):
         return (((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
-                   
     
+    
+    
+    
+    
+    
+class wolf_agent(): # Create class
+    
+    # Add functions to class. Init function runs whenever new agent is created.
+    def __init__(self, environment, wolf_agents, agents, y, x):
+        self.x = random.randint(0,100)
+        self.y = random.randint(0,100)
+        self.environment = environment
+        self.wolf_agents = wolf_agents
+        self.agents = agents
+        self.store = 0 # How much each agent has "stored/eaten" at the start
+    
+    
+    # Function to randomly move the agents.
+    def move(self):
+        if random.random() < 0.5:
+            self.y = (self.y + 1) % 100
+        else:
+            self.y = (self.y - 1) % 100
+
+        if random.random() < 0.5:
+            self.x = (self.x + 1) % 100
+        else:
+            self.x = (self.x - 1) % 100
+            
+        
+            
+    # Function to eat sheep
+    def eat_sheep(self, neighbourhood):
+        for agent in self.agents: # Loop through the agents in self.agents            
+            distance = self.sheep_distance(agent) # Calculate the distance between self and the current other agent:            
+            if distance <= neighbourhood: # If distance is less than or equal to the neighbourhood                
+                self.agents.remove(agent) # eat agent
+                print("sheep eaten")
+
+    # Function to create pythag formula to calculate distance between co-ordinates
+    def sheep_distance(self, agent):
+        return (((self.x - agent.x)**2) + ((self.y - agent.y)**2))**0.5
+             
