@@ -69,6 +69,6 @@ This project is licensed under the GNU License - see the LICENSE file in the fol
 ## Author
 
 **Thomas Coleman** : 
-(https://github.com/sideshowtee1003) GitHub Profile Page
-(https://sideshowtee1003.github.io/) GY18TC - Agent Based Modelling html page
-(https://github.com/sideshowtee1003/Agent-Based-Modelling) Agent Based Modelling Repository
+	-(https://github.com/sideshowtee1003) GitHub Profile Page
+	-(https://sideshowtee1003.github.io/) GY18TC - Agent Based Modelling html page
+	-(https://github.com/sideshowtee1003/Agent-Based-Modelling) Agent Based Modelling Repository
