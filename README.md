@@ -20,7 +20,7 @@
 	- csv
 	
 	
-### Contents of GitHub directory
+## Contents of GitHub directory
 
 - The following includes a list of all files included within the GitHub repository for the software:
 	- .gitattributes (default GitHub file)
@@ -71,5 +71,3 @@ This project is licensed under the GNU License - see the LICENSE file in the fol
 
 - **Thomas Coleman** : 
 	-(https://github.com/sideshowtee1003) GitHub Profile Page
-	-(https://sideshowtee1003.github.io/) GY18TC - Agent Based Modelling html page
-	-(https://github.com/sideshowtee1003/Agent-Based-Modelling) Agent Based Modelling Repository
