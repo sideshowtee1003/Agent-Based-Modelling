@@ -33,7 +33,7 @@
 
 ## Running the model
 
-The model.py file should be executed within Anaconda Spyder (or alternative). When the program is run, a GUI will be presented to the user:
+- The model.py file should be executed within Anaconda Spyder (or alternative). When the program is run, a GUI will be presented to the user:
 	- The scale bar at the top of the GUI can be adjusted from 10-100. This sets both the amount of sheep agents and wolf agents.
 	- Once the scale bar has been adjusted, the user must click the "Set Scale Value" button below the slider.
 	- Once the number of agents has been selected and set, the user should click "Options" drop down in the top left corner.
@@ -43,6 +43,7 @@ The model.py file should be executed within Anaconda Spyder (or alternative). Wh
 	
 ## The Model: Behind the Scenes
 
+- The following has been written into the code:
 	- Sheep agents are plotted with white * markers
 	- Wolf agents are plotted with black * markers
 	- When the sheep agents eat the environment, they will gain +1-10 towards their total storage. Each agent's storage starts at 0.
@@ -55,7 +56,7 @@ The model.py file should be executed within Anaconda Spyder (or alternative). Wh
 	
 ## Testing
 
-Automated testing is set up in the code to ensure the software is working as expected. If using Spyder, testing will be printed to the console.
+- Automated testing is set up in the code to ensure the software is working as expected. If using Spyder, testing will be printed to the console.
 	- Every time a wolf agent "eats" a sheep agent, "A WOLF HAS EATEN A SHEEP! (total storage) in total!" is printed to the console, to ensure eating function is working correctly, and counting wolf agents storage.
 	- To ensure the stopping condition is working as intended, upon the stopping condition being met, each of the remaining sheep agents will have their XY co-ords and storage amount printed (this should be in excess of 500 if working correctly)
 	- To test that the sheep agents are sharing with their neighbours. Line 61 should be uncommented in agentframework.py. This will print the amount shared, and individual new storage total.
@@ -68,7 +69,7 @@ This project is licensed under the GNU License - see the LICENSE file in the fol
 
 ## Author
 
-**Thomas Coleman** : 
+- **Thomas Coleman** : 
 	-(https://github.com/sideshowtee1003) GitHub Profile Page
 	-(https://sideshowtee1003.github.io/) GY18TC - Agent Based Modelling html page
 	-(https://github.com/sideshowtee1003/Agent-Based-Modelling) Agent Based Modelling Repository
