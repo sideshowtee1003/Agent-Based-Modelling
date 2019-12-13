@@ -6,7 +6,7 @@
 - The end user can run/quit the model through a GUI, aswell as adjust the number of agents before running (wolves and sheep).
 
 
-## Getting Started and Installtion
+## Getting Started and Installation
 
  - When developing this software, the Anaconda software was utilised, available here: https://www.anaconda.com/distribution/ 
  - The use of Anaconda is recommended, as this installation comes bundled with Python and many useful libraries.
@@ -56,7 +56,7 @@ The model.py file should be executed within Anaconda Spyder (or alternative). Wh
 ## Testing
 
 Automated testing is set up in the code to ensure the software is working as expected. If using Spyder, testing will be printed to the console.
-	- Every time a wolf agent "eats" a sheep agent, "A WOLF HAS EATEN A SHEEP! (total storage) in total!" is printed to the console, to ensure eating function is working correctly, and count9ing wolf agents storage.
+	- Every time a wolf agent "eats" a sheep agent, "A WOLF HAS EATEN A SHEEP! (total storage) in total!" is printed to the console, to ensure eating function is working correctly, and counting wolf agents storage.
 	- To ensure the stopping condition is working as intended, upon the stopping condition being met, each of the remaining sheep agents will have their XY co-ords and storage amount printed (this should be in excess of 500 if working correctly)
 	- To test that the sheep agents are sharing with their neighbours. Line 61 should be uncommented in agentframework.py. This will print the amount shared, and individual new storage total.
 	
