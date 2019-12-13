@@ -12,9 +12,9 @@ import bs4
 
 num_of_moves = 2 # variable for how many times agent moves before refreshing
 num_of_iterations = 100 # variable for total number of iterations between each refresh
-neighbourhood = 1
-agents = []
-wolf_agents = []
+neighbourhood = 2 # variable to control neighbourhood distance (for sheep sharing and wolves eating)
+agents = [] # variable for empty list of agents/sheep
+wolf_agents = [] # variable for empty list of agents/wolves
 
 
 # Download and print y and x data from webpage
@@ -60,6 +60,7 @@ def update(frame_number): # frame_number is a required parameter of the update f
             agents[i].eat()
             agents[i].share_with_neighbours(neighbourhood)
             wolf_agents[i].move()
+
             
         for i in range(num_of_agents):
             wolf_agents[i].eat_sheep(neighbourhood)
@@ -108,7 +109,8 @@ def run():
     animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
     canvas.draw()
     
-# Create function for setting the value of num_of_agents from slider bar with w.get()   
+# Create function for setting the value of num_of_agents from slider bar with w.get() 
+# Agent and wolf_agent append for loops placed within this function, to enable the end user to adjust variable through the GUI
 def sel():
     
     global num_of_agents
@@ -123,6 +125,7 @@ def sel():
         x = int(td_xs[i].text)
         #print(x, y)
         agents.append(agentframework.Agent(environment, agents, y, x))
+        
         
     for i in range(num_of_agents):
         y = random.randint(0,100)
@@ -154,7 +157,7 @@ Returns:
 """ 
 
 # Creates scalebar
-w = tk.Scale(root,from_=10, to=100, orient=tk.HORIZONTAL, width=50, length=500, label="Number of Agents")
+w = tk.Scale(root,from_=10, to=100, orient=tk.HORIZONTAL, width=50, length=500, label="Number of Agents (Wolves and Sheep)")
 w.pack()
 
 
